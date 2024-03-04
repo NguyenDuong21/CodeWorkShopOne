@@ -4,15 +4,38 @@ const express = require('express');
 const os = require('os');
 
 // Constants
-const PORT = 8080;
+const PORT = 3000;
 const HOST = '0.0.0.0';
 
 // App
 const app = express();
 app.get('/', (req, res) => {
-  res.send(
-    `<body style='background-color:#283E5B'><h1 style='color: orange;text-align:center'>Hello AWS ${os.hostname()}</h1></body>`
-  );
+  const clientIp = req.header('x-forwarded-for');
+  const elbIP = req.socket.remoteAddress;
+  const containerdIp = req.socket.localAddress;
+  const containerName = os.hostname();
+  res.json({
+    serviceName: "Duongnx",
+    clientIp,
+    elbIP,
+    containerdIp,
+    containerName
+  })
+});
+
+app.get('/users', (req, res) => {
+  const clientIp = req.header('x-forwarded-for');
+  const elbIP = req.socket.remoteAddress;
+  const containerdIp = req.socket.localAddress;
+  const containerName = os.hostname();
+  res.json({
+    message: "This is from user request",
+    serviceName: "Duongnx",
+    clientIp,
+    elbIP,
+    containerdIp,
+    containerName
+  })
 });
 
 app.listen(PORT, HOST);
