@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   const containerdIp = req.socket.localAddress;
   const containerName = os.hostname();
   res.json({
-    serviceName: "Duongnx",
+    serviceName: "Duongnx v2 v2",
     clientIp,
     elbIP,
     containerdIp,
@@ -30,7 +30,7 @@ app.get('/users', (req, res) => {
   const containerName = os.hostname();
   res.json({
     message: "This is from user request",
-    serviceName: "Duongnx",
+    serviceName: "Duongnx v2 v2",
     clientIp,
     elbIP,
     containerdIp,
