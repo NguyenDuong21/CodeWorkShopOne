@@ -23,7 +23,7 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      - printf '[{"name":"lab-ecs-elb-cicd","imageUri":"%s"}]'
+      - printf '[{"name":"ecs-images","imageUri":"%s"}]'
         $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
 artifacts:
