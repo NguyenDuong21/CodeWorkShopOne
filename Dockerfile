@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:16
+FROM --platform=linux/amd64 public.ecr.aws/docker/library/node:16.0.0
 
 #create app directory
 WORKDIR /app
